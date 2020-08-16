@@ -46,12 +46,22 @@ public class BmsWebConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests ()
                 .antMatchers("/**/public/**").permitAll ()
                 .antMatchers ("/**/restricted/**").hasRole ("USER")
+                .antMatchers(
+                        "/v2/api-docs",
+                        "/**/swagger-resources/**",
+                        "/**/swagger-ui.html",
+                        "/**/webjars/**" ,
+                        /*Probably not needed*/ "/swagger.json")
+                .permitAll()
                 .anyRequest ().authenticated ();
+
+
     }
         @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
-                .antMatchers("/**/public/**");
+                .antMatchers("/**/public/**")
+                .antMatchers("/**/swagger*");
 
     }
 
