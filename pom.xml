@@ -95,12 +95,20 @@
 			<groupId>org.springframework.hateoas</groupId>
 			<artifactId>spring-hateoas</artifactId>
 		</dependency>
+<<<<<<< Updated upstream
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-client</artifactId>
 		</dependency>
+=======
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+>>>>>>> Stashed changes
 
-	</dependencies>
+    </dependencies>
 
 	<dependencyManagement>
 		<dependencies>

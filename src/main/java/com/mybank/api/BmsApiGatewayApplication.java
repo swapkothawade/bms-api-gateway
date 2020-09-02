@@ -16,6 +16,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import org.springframework.hateoas.client.LinkDiscoverers;
 import springfox.documentation.service.Contact;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.List;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableZuulProxy
+@EnableSwagger2
 public class BmsApiGatewayApplication {
 
 	public static void main(String[] args) {

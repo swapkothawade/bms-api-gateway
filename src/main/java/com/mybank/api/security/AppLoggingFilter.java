@@ -30,8 +30,8 @@ public class AppLoggingFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
-        log.info("Request --> {} , Request URI ---> {} ",request,request.getRequestURI());
-        return null;
-    }
+    HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+    log.info("Request --> {} , Request URI ---> {} ",request,request.getRequestURI());
+    return null;
+}
 }
