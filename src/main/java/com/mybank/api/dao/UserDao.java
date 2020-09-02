@@ -28,6 +28,7 @@ public class UserDao extends AbstractBMSDao{
     public UserDao(
             MongoClient mongoClient, @Value("${spring.mongodb.database}") String databaseName) {
         super(mongoClient, databaseName);
+        System.out.println("Connection String >>>>>>>>"+connectionString);
         CodecRegistry pojoCodecRegistry =
                 fromRegistries(
                         MongoClientSettings.getDefaultCodecRegistry(),

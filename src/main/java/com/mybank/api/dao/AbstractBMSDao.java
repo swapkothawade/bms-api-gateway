@@ -7,6 +7,7 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
+@RefreshScope
 public abstract class AbstractBMSDao {
 
     protected final String MYBANK_DATABASE;
@@ -24,6 +26,7 @@ public abstract class AbstractBMSDao {
     private String connectionString;
 
     protected AbstractBMSDao(MongoClient mongoClient, String databaseName) {
+    	System.out.println("Connection String >>>>>>>>"+connectionString);
         this.mongoClient = mongoClient;
         MYBANK_DATABASE = databaseName;
         this.db = this.mongoClient.getDatabase(MYBANK_DATABASE);
@@ -34,6 +37,7 @@ public abstract class AbstractBMSDao {
     }
 
     public Map<String, Object> getConfiguration() {
+    	System.out.println("Connection String >>>>>>>>"+connectionString);
         ConnectionString connString = new ConnectionString(connectionString);
         Bson command = new Document("connectionStatus", 1);
         Document connectionStatus = this.mongoClient.getDatabase(MYBANK_DATABASE).runCommand(command);

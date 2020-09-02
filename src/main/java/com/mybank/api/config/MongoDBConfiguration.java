@@ -18,6 +18,7 @@ public class MongoDBConfiguration {
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     public MongoClient mongoClient(@Value("${spring.mongodb.uri}") String connectionString) {
 
+    	System.out.println("Connection String >>>>>>>>"+connectionString);
         ConnectionString connString = new ConnectionString(connectionString);
 
         MongoClient mongoClient = MongoClients.create(connectionString);
